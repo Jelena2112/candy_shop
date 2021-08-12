@@ -22,3 +22,4 @@ $id = $_POST['id'];
 
 editCandy($name, $price, $amount, $id);
 
+header("Location: ../admin.php");

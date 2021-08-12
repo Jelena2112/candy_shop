@@ -7,7 +7,7 @@ if (!isset($_POST["name"]) || !isset($_POST["price"]) || !isset($_POST["amount"]
 
 require "functions.php";
 
-if (!fieldsEmpty($_POST["name"] , $_POST["price"], $_POST["amount"]))
+if (fieldsEmpty($_POST["name"] , $_POST["price"], $_POST["amount"]))
 {
     die('kjkjkj');
 }
@@ -15,3 +15,5 @@ if (!fieldsEmpty($_POST["name"] , $_POST["price"], $_POST["amount"]))
 require "base.php";
 
 addCandy($_POST["name"] , $_POST["price"], $_POST["amount"]);
+
+header("Location: ../admin.php");
