@@ -1,3 +1,12 @@
+<?php
+
+require "app/base.php";
+
+$candies = getAllCandies();
+
+
+
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -12,7 +21,16 @@
         <input name="amount" type="number" placeholder="amount">
         <button>submit</button>
 
+
     </form>
+
+
+    <?php foreach ($candies as $candy) : ?>
+        <p><?= $candy['name'] ?></p>
+        <p><?= $candy['price'] ?></p>
+        <p><?= $candy['amount'] ?></p>
+        <a href="edit.php?id=<?= $candy['id'] ?>">Edit</a>
+    <?php endforeach; ?>
 
 
 
