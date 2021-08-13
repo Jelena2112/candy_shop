@@ -30,6 +30,7 @@ $candies = getAllCandies();
         <p><?= $candy['price'] ?></p>
         <p><?= $candy['amount'] ?></p>
         <a href="edit.php?id=<?= $candy['id'] ?>">Edit</a>
+        <a href="app/delete.php?id=<?=$candy['id'] ?>">Delete</a>
     <?php endforeach; ?>
 
 
