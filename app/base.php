@@ -7,11 +7,11 @@ function db_connect()
     $password = "";
     $db = "candy_shoop";
 
-    return mysqli_connect($hosting, $user, $password , $db);
+    return mysqli_connect($hosting, $user, $password, $db);
 }
 
 
-function addCandy(string $name, int $price, int $amount) : void
+function addCandy(string $name, int $price, int $amount): void
 {
     $connection = db_connect();
     $name = $connection->real_escape_string($name);
@@ -21,7 +21,7 @@ function addCandy(string $name, int $price, int $amount) : void
     $connection->close();
 }
 
-function getAllCandies() : array
+function getAllCandies(): array
 {
     $connection = db_connect();
     $result = $connection->query("SELECT * FROM candies");
@@ -38,7 +38,7 @@ function getCandi(int $id)
     return $result->fetch_assoc();
 }
 
-function editCandy(string $name, int $price, int $amount,int $id) :void
+function editCandy(string $name, int $price, int $amount, int $id): void
 {
     $connect = db_connect();
     $id = $connect->real_escape_string($id);
@@ -49,10 +49,24 @@ function editCandy(string $name, int $price, int $amount,int $id) :void
     $connect->close();
 }
 
-function deleteCandy(int $id) :void
+function deleteCandy(int $id): void
 {
     $connect = db_connect();
     $id = $connect->real_escape_string($id);
     $connect->query("DELETE FROM candies WHERE id = $id");
+    $connect->close();
+}
+
+function createbuyerInformation(string $name, string $address, string $city, string $phone, int $candyId): void
+{
+    $connect = db_connect();
+    $name = $connect->real_escape_string($name);
+    $address = $connect->real_escape_string($address);
+    $city = $connect->real_escape_string($city);
+    $phone = $connect->real_escape_string($phone);
+    $candyId = $connect->real_escape_string($candyId);
+
+    $connect->query("INSERT INTO buyers (name, address, city, phone, candy_id) VALUES ('$name', '$address', '$city' , '$phone' , $candyId)");
+
     $connect->close();
 }

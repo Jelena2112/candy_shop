@@ -1,14 +1,12 @@
 <?php
 
-if (!isset($_POST["name"]) || !isset($_POST["price"]) || !isset($_POST["amount"]) || !isset($_POST["id"]))
-{
+if (!isset($_POST["name"]) || !isset($_POST["price"]) || !isset($_POST["amount"]) || !isset($_POST["id"])) {
     die("djsljdls");
 }
 
 require "functions.php";
 
-if (fieldsEmpty($_POST["name"] , $_POST["price"], $_POST["amount"]))
-{
+if (fieldsEmpty($_POST["name"], $_POST["price"], $_POST["amount"])) {
     die('helo');
 }
 
